@@ -5,7 +5,7 @@ import com.github.kelly.reflections.Service;
 @Service
 public class SuccessService {
 
-    public String getMessage() {
-        return "SuccessService - getMessage: Hi, there? ";
+    public void getSuccessMessage() {
+        System.out.println("SuccessService - getSuccessMessage: Hi, there?");
     }
 }
