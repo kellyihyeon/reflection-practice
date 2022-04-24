@@ -1,6 +1,7 @@
 package com.github.kelly.reflections;
 
 import org.reflections.Reflections;
+import org.reflections.scanners.TypeAnnotationsScanner;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -9,7 +10,11 @@ import java.util.Set;
 public class Application {
 
     public static void main(String[] args) throws InstantiationException, IllegalAccessException, InvocationTargetException {
-        Reflections reflections = new Reflections("com.github.kelly.reflections");
+        Reflections reflections = new Reflections(
+                "com.github.kelly.reflections",
+                new TypeAnnotationsScanner()
+
+        );
 
         // controller component scan
         final Set<Class<?>> controllerAnnotationClazz = reflections.getTypesAnnotatedWith(Controller.class);
